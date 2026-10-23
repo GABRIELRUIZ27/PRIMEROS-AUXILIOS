@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primeros Auxilios para mi Comunidad | Ciudad Juárez</title>
+<meta name="description" content="Guía de primeros auxilios para las familias de Ciudad Juárez: RCP, atragantamiento, hemorragias, golpe de calor, monóxido de carbono y más.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#fff8f1;
+  --coral:#e63946;
+  --coral-osc:#c1121f;
+  --teal:#2a9d8f;
+  --teal-claro:#d8f3ef;
+  --marino:#1d3557;
+  --arena:#f4e3cf;
+  --texto:#2b2d42;
+  --gris:#6c6f80;
+  --blanco:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--crema);color:var(--texto);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--marino);line-height:1.25}
+.ico{width:1em;height:1em;fill:currentColor;display:inline-block;vertical-align:-.125em;flex-shrink:0}
+.envoltura{width:min(1100px,100% - 32px);margin:0 auto}
+
+/* encabezado */
+header{position:sticky;top:0;z-index:50;background:var(--blanco);border-bottom:3px solid var(--coral)}
+.barra{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.marca{display:flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:800;color:var(--marino);text-decoration:none;font-size:1.05rem}
+.marca .cruz{width:36px;height:36px;border-radius:10px;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+.enlaces{display:flex;gap:20px;list-style:none}
+.enlaces a{text-decoration:none;color:var(--texto);font-weight:700;font-size:.92rem;border-bottom:2px solid transparent;padding-bottom:2px}
+.enlaces a:hover{color:var(--coral);border-color:var(--coral)}
+.btn-menu{display:none;background:none;border:0;font-size:1.5rem;color:var(--marino);cursor:pointer}
+
+/* portada */
+.portada{padding:60px 0 70px;background:linear-gradient(180deg,var(--crema),var(--arena))}
+.portada .envoltura{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.chip{display:inline-block;background:var(--teal-claro);color:var(--teal);font-weight:700;padding:5px 14px;border-radius:6px;font-size:.85rem;margin-bottom:16px}
+.portada h1{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:800;margin-bottom:16px}
+.portada h1 em{font-style:normal;color:var(--coral)}
+.portada p{font-size:1.1rem;color:var(--gris);margin-bottom:26px}
+.boton{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-weight:700;padding:13px 24px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-family:'Poppins';font-size:.95rem;transition:background .2s}
+.boton:hover{background:var(--coral-osc)}
+.boton.borde{background:transparent;color:var(--marino);border:2px solid var(--marino);margin-left:8px}
+.boton.borde:hover{background:var(--marino);color:#fff}
+.ilustra{background:#fff;border-radius:20px;padding:24px;box-shadow:0 12px 30px rgba(29,53,87,.1)}
+.ilustra svg{width:100%;height:auto;display:block}
+.linea-ecg{stroke-dasharray:600;stroke-dashoffset:600;animation:ecg 2.6s linear infinite}
+@keyframes ecg{to{stroke-dashoffset:0}}
+.corazon{transform-origin:200px 95px;animation:latir 1s ease-in-out infinite}
+@keyframes latir{0%,100%{transform:scale(1)}20%{transform:scale(1.12)}40%{transform:scale(1)}}
+
+/* secciones */
+section{padding:70px 0}
+.cabeza{margin-bottom:36px;max-width:700px}
+.cabeza small{color:var(--coral);font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:.8rem}
+.cabeza h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:6px 0 10px}
+.cabeza p{color:var(--gris)}
+.fondo-blanco{background:#fff}
+
+/* datos */
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.dato{background:#fff;border-radius:14px;padding:22px;border-top:5px solid var(--teal);box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.dato b{display:block;font-family:'Poppins';font-size:2rem;color:var(--coral);line-height:1.1}
+.dato span{font-size:.92rem;color:var(--gris)}
+
+/* PAS */
+.pas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.paso-pas{background:var(--crema);border-radius:16px;padding:26px;position:relative}
+.paso-pas .letra{font-family:'Poppins';font-weight:800;font-size:3.2rem;color:var(--teal);opacity:.25;position:absolute;right:18px;top:6px}
+.paso-pas .circ{width:52px;height:52px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:1.4rem;margin-bottom:12px}
+.paso-pas h3{margin-bottom:8px}
+.paso-pas p{color:var(--gris);font-size:.95rem}
+
+/* guía de emergencias */
+.guia{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
+.lista-emerg{display:flex;flex-direction:column;gap:8px}
+.lista-emerg button{display:flex;align-items:center;gap:12px;text-align:left;background:#fff;border:2px solid transparent;padding:12px 14px;border-radius:10px;font-family:'Nunito';font-weight:700;font-size:.95rem;color:var(--texto);cursor:pointer;transition:.2s}
+.lista-emerg button .ico{color:var(--coral);font-size:1.15rem}
+.lista-emerg button:hover{border-color:var(--arena)}
+.lista-emerg button.activo{border-color:var(--coral);background:#fff1f1}
+.detalle{background:#fff;border-radius:16px;padding:30px;box-shadow:0 8px 24px rgba(0,0,0,.06);min-height:420px}
+.detalle h3{font-size:1.5rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.detalle h3 .ico{color:var(--coral)}
+.detalle .intro{color:var(--gris);margin-bottom:18px}
+.detalle ol{padding-left:0;list-style:none;counter-reset:n}
+.detalle ol li{counter-increment:n;position:relative;padding:8px 0 8px 42px;border-bottom:1px dashed #eadfd2}
+.detalle ol li::before{content:counter(n);position:absolute;left:0;top:8px;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.85rem;display:grid;place-items:center}
+.nohacer{margin-top:18px;background:#fff1f1;border-left:4px solid var(--coral);padding:14px 16px;border-radius:8px}
+.nohacer strong{color:var(--coral-osc);display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.nohacer ul{padding-left:20px;color:var(--texto);font-size:.94rem}
+.panel-em{display:none;animation:entrar .35s ease}
+.panel-em.ver{display:block}
+@keyframes entrar{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+
+/* metrónomo */
+.metro{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:var(--marino);color:#fff;border-radius:20px;padding:40px}
+.metro h2,.metro h3{color:#fff}
+.metro p{color:#cfd8e6}
+.metro ul{margin:14px 0 0 20px;color:#cfd8e6}
+.pulso-caja{text-align:center}
+.pulso{width:170px;height:170px;margin:0 auto 20px;border-radius:50%;background:rgba(230,57,70,.15);display:grid;place-items:center;font-size:4.5rem;color:var(--coral);transition:transform .08s}
+.pulso.golpe{transform:scale(1.18);background:rgba(230,57,70,.35)}
+#contador{font-family:'Poppins';font-size:1.2rem;margin-bottom:14px}
+
+/* botiquín */
+.botiquin{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.objeto{background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid #f0e4d6;transition:transform .2s}
+.objeto:hover{transform:translateY(-4px)}
+.objeto .ico{font-size:1.8rem;color:var(--teal);margin-bottom:8px}
+.objeto p{font-weight:700;font-size:.92rem}
+
+/* mitos */
+.mitos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.tarjeta-mito{perspective:900px;height:210px;cursor:pointer}
+.giro{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.tarjeta-mito.volteada .giro{transform:rotateY(180deg)}
+.cara{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+.frente{background:var(--arena)}
+.frente small{color:var(--coral);font-weight:800;letter-spacing:1px}
+.frente h4{margin-top:6px;font-size:1.05rem}
+.frente .toca{margin-top:auto;font-size:.8rem;color:var(--gris)}
+.atras{background:var(--teal);color:#fff;transform:rotateY(180deg)}
+.atras small{font-weight:800;letter-spacing:1px;opacity:.85}
+.atras p{margin-top:6px;font-size:.95rem}
+
+/* números */
+.numeros{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+.num{border-radius:16px;padding:26px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.num.grande{background:var(--coral);color:#fff}
+.num.grande h3{color:#fff}
+.num b{font-family:'Poppins';font-size:2.6rem;display:block;line-height:1.1;margin:6px 0}
+.num p{font-size:.92rem}
+
+/* referencias y pie */
+.referencias{font-size:.9rem;color:var(--gris);padding-left:20px}
+.referencias li{margin-bottom:8px}
+.referencias a{color:var(--teal)}
+footer{background:var(--marino);color:#cfd8e6;padding:34px 0;text-align:center;font-size:.9rem}
+footer strong{color:#fff}
+.aviso{max-width:700px;margin:10px auto 0;font-size:.8rem;opacity:.75}
+
+@media(max-width:860px){
+  .enlaces{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px;gap:12px;border-bottom:3px solid var(--coral)}
+  .enlaces.abierto{display:flex}
+  .btn-menu{display:block}
+  .portada .envoltura,.guia,.metro,.numeros{grid-template-columns:1fr}
+  .pas{grid-template-columns:1fr}
+  .lista-emerg{flex-direction:row;flex-wrap:wrap}
+  .lista-emerg button{flex:1 1 45%}
+  .metro{padding:26px}
+  .boton.borde{margin:10px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="envoltura barra">
+    <a href="#inicio" class="marca"><span class="cruz"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H96V32H64zm64 0V480H448V32H128zM512 480c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H480V480h32zM256 176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v48h48c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H320v48c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V288H208c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16h48V176z"/></svg></span> Primeros Auxilios Juárez</a>
+    <button class="btn-menu" id="btnMenu" aria-label="Menú"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+    <ul class="enlaces" id="enlaces">
+      <li><a href="#importancia">¿Por qué?</a></li>
+      <li><a href="#pas">Cómo actuar</a></li>
+      <li><a href="#guia">Guía</a></li>
+      <li><a href="#rcp">RCP</a></li>
+      <li><a href="#botiquin">Botiquín</a></li>
+      <li><a href="#telefonos">Teléfonos</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="portada" id="inicio">
+  <div class="envoltura">
+    <div>
+      <span class="chip">Proyecto comunitario · Ciudad Juárez, Chihuahua</span>
+      <h1>Primeros auxilios <em>para mi comunidad</em></h1>
+      <p>Lo que hagas en los primeros minutos de una emergencia puede salvar una vida. Aquí encontrarás qué hacer, paso a paso, ante las emergencias más comunes en nuestra ciudad.</p>
+      <a href="#guia" class="boton"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M0 96C0 43 43 0 96 0H384h32c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32H384 96c-53 0-96-43-96-96V96zM64 416c0 17.7 14.3 32 32 32H352V384H96c-17.7 0-32 14.3-32 32zM208 112v48H160c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V224h48c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H272V112c0-8.8-7.2-16-16-16H224c-8.8 0-16 7.2-16 16z"/></svg> Ver la guía</a>
+      <a href="#rcp" class="boton borde"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M228.3 469.1L47.6 300.4c-4.2-3.9-8.2-8.1-11.9-12.4h87c22.6 0 43-13.6 51.7-34.5l10.5-25.2 49.3 109.5c3.8 8.5 12.1 14 21.4 14.1s17.8-5 22-13.3L320 253.7l1.7 3.4c9.5 19 28.9 31 50.1 31H476.3c-3.7 4.3-7.7 8.5-11.9 12.4L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9zM503.7 240h-132c-3 0-5.8-1.7-7.2-4.4l-23.2-46.3c-4.1-8.1-12.4-13.3-21.5-13.3s-17.4 5.1-21.5 13.3l-41.4 82.8L205.9 158.2c-3.9-8.7-12.7-14.3-22.2-14.1s-18.1 5.9-21.8 14.8l-31.8 76.3c-1.2 3-4.2 4.9-7.4 4.9H16c-2.6 0-5 .4-7.3 1.1C3 225.2 0 208.2 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141C165 36.5 211.4 51.4 244 84l12 12 12-12c32.6-32.6 79-47.5 124.6-39.9C461.5 55.6 512 115.2 512 185.1v5.8c0 16.9-2.8 33.5-8.3 49.1z"/></svg> Practicar RCP</a>
+    </div>
+    <div class="ilustra">
+      <svg viewBox="0 0 400 260" aria-label="Corazón latiendo con línea de electrocardiograma">
+        <rect x="0" y="0" width="400" height="260" rx="16" fill="#fff8f1"/>
+        <g opacity=".12" stroke="#1d3557"><line x1="0" y1="65" x2="400" y2="65"/><line x1="0" y1="130" x2="400" y2="130"/><line x1="0" y1="195" x2="400" y2="195"/><line x1="100" y1="0" x2="100" y2="260"/><line x1="200" y1="0" x2="200" y2="260"/><line x1="300" y1="0" x2="300" y2="260"/></g>
+        <path class="corazon" d="M200 140 C150 105 150 60 182 58 C195 57 200 70 200 76 C200 70 205 57 218 58 C250 60 250 105 200 140Z" fill="#e63946"/>
+        <rect x="193" y="78" width="14" height="40" rx="2" fill="#fff" class="corazon"/>
+        <rect x="180" y="91" width="40" height="14" rx="2" fill="#fff" class="corazon"/>
+        <polyline class="linea-ecg" points="0,200 120,200 140,200 155,170 170,230 185,150 200,215 215,200 400,200" fill="none" stroke="#2a9d8f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <text x="200" y="245" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="13" fill="#1d3557">Cada minuto cuenta</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="importancia">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>¿Por qué es importante?</small>
+      <h2>En una emergencia, tú eres el primer respondiente</h2>
+      <p>La ayuda profesional tarda en llegar, y el clima extremo de Juárez trae riesgos propios en cada temporada: calor intenso en verano y frío con uso de calentones en invierno.</p>
+    </div>
+    <div class="datos">
+      <div class="dato"><b>~20 min</b><span>Tiempo promedio de respuesta reportado por el Centro Regulador de Urgencias Médicas (CRUM) de Ciudad Juárez.</span></div>
+      <div class="dato"><b>250–300</b><span>Servicios de emergencia al mes coordinados por el CRUM en la ciudad, con unas 1,300 llamadas mensuales.</span></div>
+      <div class="dato"><b>23</b><span>Personas intoxicadas por monóxido de carbono en Juárez en el invierno 2024–2025, con 3 fallecidos, según Protección Civil.</span></div>
+      <div class="dato"><b>x2</b><span>Dar RCP al menos duplica las probabilidades de sobrevivir a un paro cardiaco, según la American Heart Association.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pas" class="fondo-blanco">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Antes de actuar</small>
+      <h2>Recuerda la regla P.A.S.</h2>
+      <p>Tres pasos básicos que debes seguir en cualquier emergencia, en este orden.</p>
+    </div>
+    <div class="pas">
+      <div class="paso-pas"><span class="letra">P</span><div class="circ"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg></div><h3>Proteger</h3><p>Revisa que el lugar sea seguro para ti y para la víctima: tráfico, fuego, cables, gas o agua. Si no es seguro, no entres; no te conviertas en otra víctima.</p></div>
+      <div class="paso-pas"><span class="letra">A</span><div class="circ"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></div><h3>Avisar</h3><p>Llama al 9-1-1 o pide a alguien que lo haga. Di dónde estás, qué pasó, cuántas personas están lesionadas y cómo están. Pon el altavoz para recibir indicaciones.</p></div>
+      <div class="paso-pas"><span class="letra">S</span><div class="circ"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M224 24V80H168c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h56v56c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V176h56c13.3 0 24-10.7 24-24V104c0-13.3-10.7-24-24-24H320V24c0-13.3-10.7-24-24-24H248c-13.3 0-24 10.7-24 24zM559.7 392.2c17.8-13.1 21.6-38.1 8.5-55.9s-38.1-21.6-55.9-8.5L392.6 416H272c-8.8 0-16-7.2-16-16s7.2-16 16-16h16 64c17.7 0 32-14.3 32-32s-14.3-32-32-32H288 272 193.7c-29.1 0-57.3 9.9-80 28L68.8 384H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H192 352.5c29 0 57.3-9.3 80.7-26.5l126.6-93.3zm-367-8.2l.9 0 0 0c-.3 0-.6 0-.9 0z"/></svg></div><h3>Socorrer</h3><p>Ayuda a la persona con lo que sabes, sin ponerte en riesgo. Mantente con ella y obsérvala hasta que llegue la ambulancia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="guia">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Guía rápida</small>
+      <h2>¿Qué hago si…?</h2>
+      <p>Elige una emergencia para ver los pasos. Esta información es orientativa y no sustituye un curso presencial de primeros auxilios.</p>
+    </div>
+    <div class="guia">
+      <div class="lista-emerg" id="listaEmerg">
+        <button class="activo" data-e="paro"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M228.3 469.1L47.6 300.4c-4.2-3.9-8.2-8.1-11.9-12.4h87c22.6 0 43-13.6 51.7-34.5l10.5-25.2 49.3 109.5c3.8 8.5 12.1 14 21.4 14.1s17.8-5 22-13.3L320 253.7l1.7 3.4c9.5 19 28.9 31 50.1 31H476.3c-3.7 4.3-7.7 8.5-11.9 12.4L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9zM503.7 240h-132c-3 0-5.8-1.7-7.2-4.4l-23.2-46.3c-4.1-8.1-12.4-13.3-21.5-13.3s-17.4 5.1-21.5 13.3l-41.4 82.8L205.9 158.2c-3.9-8.7-12.7-14.3-22.2-14.1s-18.1 5.9-21.8 14.8l-31.8 76.3c-1.2 3-4.2 4.9-7.4 4.9H16c-2.6 0-5 .4-7.3 1.1C3 225.2 0 208.2 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141C165 36.5 211.4 51.4 244 84l12 12 12-12c32.6-32.6 79-47.5 124.6-39.9C461.5 55.6 512 115.2 512 185.1v5.8c0 16.9-2.8 33.5-8.3 49.1z"/></svg> No respira / paro cardiaco</button>
+        <button data-e="atragantamiento"><svg class="ico" viewBox="0 0 640 512" aria-hidden="true"><path d="M320 0c17.7 0 32 14.3 32 32V164.1c0 16.4 8.4 31.7 22.2 40.5l9.8 6.2V165.3C384 127 415 96 453.3 96c21.7 0 42.8 10.2 55.8 28.8c15.4 22.1 44.3 65.4 71 116.9c26.5 50.9 52.4 112.5 59.6 170.3c.2 1.3 .2 2.6 .2 4v7c0 49.1-39.8 89-89 89c-7.3 0-14.5-.9-21.6-2.7l-72.7-18.2C414 480.5 384 442.1 384 398V325l90.5 57.6c7.5 4.7 17.3 2.5 22.1-4.9s2.5-17.3-4.9-22.1L384 287.1v-.4l-44.1-28.1c-7.3-4.6-13.9-10.1-19.9-16.1c-5.9 6-12.6 11.5-19.9 16.1L256 286.7 161.2 347l-13.5 8.6c0 0 0 0-.1 0c-7.4 4.8-9.6 14.6-4.8 22.1c4.7 7.5 14.6 9.7 22.1 4.9l91.1-58V398c0 44.1-30 82.5-72.7 93.1l-72.7 18.2c-7.1 1.8-14.3 2.7-21.6 2.7c-49.1 0-89-39.8-89-89v-7c0-1.3 .1-2.7 .2-4c7.2-57.9 33.1-119.4 59.6-170.3c26.8-51.5 55.6-94.8 71-116.9c13-18.6 34-28.8 55.8-28.8C225 96 256 127 256 165.3v45.5l9.8-6.2c13.8-8.8 22.2-24.1 22.2-40.5V32c0-17.7 14.3-32 32-32z"/></svg> Atragantamiento</button>
+        <button data-e="hemorragia"><svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg> Sangrado abundante</button>
+        <button data-e="quemadura"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg> Quemaduras</button>
+        <button data-e="calor"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M416 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 128A96 96 0 1 0 416 0a96 96 0 1 0 0 192zM96 112c0-26.5 21.5-48 48-48s48 21.5 48 48V276.5c0 17.3 7.1 31.9 15.3 42.5C217.8 332.6 224 349.5 224 368c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-18.5 6.2-35.4 16.7-48.9C88.9 308.4 96 293.8 96 276.5V112zM144 0C82.1 0 32 50.2 32 112V276.5c0 .1-.1 .3-.2 .6c-.2 .6-.8 1.6-1.7 2.8C11.2 304.2 0 334.8 0 368c0 79.5 64.5 144 144 144s144-64.5 144-144c0-33.2-11.2-63.8-30.1-88.1c-.9-1.2-1.5-2.2-1.7-2.8c-.1-.3-.2-.5-.2-.6V112C256 50.2 205.9 0 144 0zm0 416c26.5 0 48-21.5 48-48c0-20.9-13.4-38.7-32-45.3V112c0-8.8-7.2-16-16-16s-16 7.2-16 16V322.7c-18.6 6.6-32 24.4-32 45.3c0 26.5 21.5 48 48 48z"/></svg> Golpe de calor</button>
+        <button data-e="monoxido"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185V64c0-17.7-14.3-32-32-32H448c-17.7 0-32 14.3-32 32v36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32v69.7c-.1 .9-.1 1.8-.1 2.8V472c0 22.1 17.9 40 40 40h16c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2H160h24c22.1 0 40-17.9 40-40V448 384c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v64 24c0 22.1 17.9 40 40 40h24 32.5c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1h16c22.1 0 40-17.9 40-40V455.8c.3-2.6 .5-5.3 .5-8.1l-.7-160.2h32z"/></svg> Monóxido de carbono</button>
+        <button data-e="frio"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M224 0c17.7 0 32 14.3 32 32V62.1l15-15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-49 49v70.3l61.4-35.8 17.7-66.1c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4l-5.2 19.3 23.6-13.8c15.3-8.9 34.9-3.7 43.8 11.5s3.8 34.9-11.5 43.8l-25.3 14.8 21.7 5.8c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-67.7-18.1L287.5 256l60.9 35.5 67.7-18.1c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4l-21.7 5.8 25.3 14.8c15.3 8.9 20.4 28.5 11.5 43.8s-28.5 20.4-43.8 11.5l-23.6-13.8 5.2 19.3c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-17.7-66.1L256 311.7v70.3l49 49c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V449.9l-15 15c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l49-49V311.7l-61.4 35.8-17.7 66.1c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4l5.2-19.3L48.1 395.6c-15.3 8.9-34.9 3.7-43.8-11.5s-3.7-34.9 11.5-43.8l25.3-14.8-21.7-5.8c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l67.7 18.1L160.5 256 99.6 220.5 31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4l21.7-5.8L15.9 171.6C.6 162.7-4.5 143.1 4.4 127.9s28.5-20.4 43.8-11.5l23.6 13.8-5.2-19.3c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l17.7 66.1L192 200.3V129.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l15 15V32c0-17.7 14.3-32 32-32z"/></svg> Hipotermia</button>
+        <button data-e="convulsion"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"/></svg> Convulsiones</button>
+        <button data-e="fractura"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M153.7 144.8c6.9 16.3 20.6 31.2 38.3 31.2H384c17.7 0 31.4-14.9 38.3-31.2C434.4 116.1 462.9 96 496 96c44.2 0 80 35.8 80 80c0 30.4-17 56.9-42 70.4c-3.6 1.9-6 5.5-6 9.6s2.4 7.7 6 9.6c25 13.5 42 40 42 70.4c0 44.2-35.8 80-80 80c-33.1 0-61.6-20.1-73.7-48.8C415.4 350.9 401.7 336 384 336H192c-17.7 0-31.4 14.9-38.3 31.2C141.6 395.9 113.1 416 80 416c-44.2 0-80-35.8-80-80c0-30.4 17-56.9 42-70.4c3.6-1.9 6-5.5 6-9.6s-2.4-7.7-6-9.6C17 232.9 0 206.4 0 176c0-44.2 35.8-80 80-80c33.1 0 61.6 20.1 73.7 48.8z"/></svg> Fracturas y golpes</button>
+        <button data-e="picadura"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M158.4 32.6c4.8-12.4-1.4-26.3-13.8-31s-26.3 1.4-31 13.8L81.1 100c-7.9 20.7-3 44.1 12.7 59.7l57.4 57.4L70.8 190.3c-2.4-.8-4.3-2.7-5.1-5.1L46.8 128.4C42.6 115.8 29 109 16.4 113.2S-3 131 1.2 143.6l18.9 56.8c5.6 16.7 18.7 29.8 35.4 35.4L116.1 256 55.6 276.2c-16.7 5.6-29.8 18.7-35.4 35.4L1.2 368.4C-3 381 3.8 394.6 16.4 398.8s26.2-2.6 30.4-15.2l18.9-56.8c.8-2.4 2.7-4.3 5.1-5.1l80.4-26.8L93.7 352.3C78.1 368 73.1 391.4 81.1 412l32.5 84.6c4.8 12.4 18.6 18.5 31 13.8s18.5-18.6 13.8-31l-32.5-84.6c-1.1-3-.4-6.3 1.8-8.5L160 353.9c1 52.1 43.6 94.1 96 94.1s95-41.9 96-94.1l32.3 32.3c2.2 2.2 2.9 5.6 1.8 8.5l-32.5 84.6c-4.8 12.4 1.4 26.3 13.8 31s26.3-1.4 31-13.8L430.9 412c7.9-20.7 3-44.1-12.7-59.7l-57.4-57.4 80.4 26.8c2.4 .8 4.3 2.7 5.1 5.1l18.9 56.8c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-18.9-56.8c-5.6-16.7-18.7-29.8-35.4-35.4L395.9 256l60.5-20.2c16.7-5.6 29.8-18.7 35.4-35.4l18.9-56.8c4.2-12.6-2.6-26.2-15.2-30.4s-26.2 2.6-30.4 15.2l-18.9 56.8c-.8 2.4-2.7 4.3-5.1 5.1l-80.4 26.8 57.4-57.4c15.6-15.6 20.6-39 12.7-59.7L398.4 15.4C393.6 3 379.8-3.2 367.4 1.6s-18.5 18.6-13.8 31l32.5 84.6c1.1 3 .4 6.3-1.8 8.5L336 174.1V160c0-31.8-18.6-59.3-45.5-72.2c-9.1-4.4-18.5 3.3-18.5 13.4V112c0 8.8-7.2 16-16 16s-16-7.2-16-16V101.2c0-10.1-9.4-17.7-18.5-13.4C194.6 100.7 176 128.2 176 160v14.1l-48.3-48.3c-2.2-2.2-2.9-5.6-1.8-8.5l32.5-84.6z"/></svg> Alacrán o araña</button>
+      </div>
+      <div class="detalle">
+        <div class="panel-em ver" id="paro">
+          <h3><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M228.3 469.1L47.6 300.4c-4.2-3.9-8.2-8.1-11.9-12.4h87c22.6 0 43-13.6 51.7-34.5l10.5-25.2 49.3 109.5c3.8 8.5 12.1 14 21.4 14.1s17.8-5 22-13.3L320 253.7l1.7 3.4c9.5 19 28.9 31 50.1 31H476.3c-3.7 4.3-7.7 8.5-11.9 12.4L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9zM503.7 240h-132c-3 0-5.8-1.7-7.2-4.4l-23.2-46.3c-4.1-8.1-12.4-13.3-21.5-13.3s-17.4 5.1-21.5 13.3l-41.4 82.8L205.9 158.2c-3.9-8.7-12.7-14.3-22.2-14.1s-18.1 5.9-21.8 14.8l-31.8 76.3c-1.2 3-4.2 4.9-7.4 4.9H16c-2.6 0-5 .4-7.3 1.1C3 225.2 0 208.2 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141C165 36.5 211.4 51.4 244 84l12 12 12-12c32.6-32.6 79-47.5 124.6-39.9C461.5 55.6 512 115.2 512 185.1v5.8c0 16.9-2.8 33.5-8.3 49.1z"/></svg> La persona no responde y no respira</h3>
+          <p class="intro">Si una persona se desploma, no responde y no respira o solo da bocanadas, puede estar en paro cardiaco.</p>
+          <ol>
+            <li>Háblale fuerte y tócale los hombros. Si no responde, llama al 9-1-1 y pide un desfibrilador (DEA) si hay uno cerca.</li>
+            <li>Acuéstala boca arriba sobre una superficie firme.</li>
+            <li>Coloca el talón de una mano en el centro del pecho y la otra encima.</li>
+            <li>Empuja fuerte y rápido: unos 5 cm de profundidad, a un ritmo de 100 a 120 compresiones por minuto. Deja que el pecho regrese entre cada una.</li>
+            <li>Si no estás capacitado, haz solo compresiones sin parar. Si lo estás, da 30 compresiones y 2 ventilaciones.</li>
+            <li>Cuando llegue el DEA, enciéndelo y sigue sus instrucciones de voz. Continúa hasta que llegue la ayuda.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No pierdas tiempo buscando el pulso si no sabes hacerlo.</li><li>No detengas las compresiones por más de 10 segundos.</li></ul></div>
+        </div>
+        <div class="panel-em" id="atragantamiento">
+          <h3><svg class="ico" viewBox="0 0 640 512" aria-hidden="true"><path d="M320 0c17.7 0 32 14.3 32 32V164.1c0 16.4 8.4 31.7 22.2 40.5l9.8 6.2V165.3C384 127 415 96 453.3 96c21.7 0 42.8 10.2 55.8 28.8c15.4 22.1 44.3 65.4 71 116.9c26.5 50.9 52.4 112.5 59.6 170.3c.2 1.3 .2 2.6 .2 4v7c0 49.1-39.8 89-89 89c-7.3 0-14.5-.9-21.6-2.7l-72.7-18.2C414 480.5 384 442.1 384 398V325l90.5 57.6c7.5 4.7 17.3 2.5 22.1-4.9s2.5-17.3-4.9-22.1L384 287.1v-.4l-44.1-28.1c-7.3-4.6-13.9-10.1-19.9-16.1c-5.9 6-12.6 11.5-19.9 16.1L256 286.7 161.2 347l-13.5 8.6c0 0 0 0-.1 0c-7.4 4.8-9.6 14.6-4.8 22.1c4.7 7.5 14.6 9.7 22.1 4.9l91.1-58V398c0 44.1-30 82.5-72.7 93.1l-72.7 18.2c-7.1 1.8-14.3 2.7-21.6 2.7c-49.1 0-89-39.8-89-89v-7c0-1.3 .1-2.7 .2-4c7.2-57.9 33.1-119.4 59.6-170.3c26.8-51.5 55.6-94.8 71-116.9c13-18.6 34-28.8 55.8-28.8C225 96 256 127 256 165.3v45.5l9.8-6.2c13.8-8.8 22.2-24.1 22.2-40.5V32c0-17.7 14.3-32 32-32z"/></svg> Atragantamiento</h3>
+          <p class="intro">La persona se lleva las manos al cuello, no puede hablar, toser ni respirar.</p>
+          <ol>
+            <li>Pregúntale: "¿Te estás ahogando?". Si puede toser con fuerza, anímala a seguir tosiendo.</li>
+            <li>Si no puede toser ni hablar, colócate detrás de ella e inclínala hacia adelante.</li>
+            <li>Da 5 golpes firmes en la espalda, entre los omóplatos, con el talón de la mano.</li>
+            <li>Luego da 5 compresiones abdominales: puño arriba del ombligo, cubierto con tu otra mano, jalando hacia adentro y hacia arriba.</li>
+            <li>Alterna 5 golpes y 5 compresiones hasta que salga el objeto. Si pierde el conocimiento, llama al 9-1-1 e inicia RCP.</li>
+            <li>En bebés: 5 golpes en la espalda (boca abajo sobre tu antebrazo) y 5 compresiones en el pecho con dos dedos.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No metas los dedos a ciegas en la boca.</li><li>No hagas compresiones abdominales a bebés menores de un año.</li></ul></div>
+        </div>
+        <div class="panel-em" id="hemorragia">
+          <h3><svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg> Sangrado abundante</h3>
+          <p class="intro">Una hemorragia grave puede ser mortal en pocos minutos. Actúa rápido.</p>
+          <ol>
+            <li>Si puedes, ponte guantes o usa una bolsa de plástico para protegerte.</li>
+            <li>Presiona directamente la herida con una gasa o tela limpia, con fuerza y sin soltar.</li>
+            <li>Si la tela se empapa, no la quites: coloca otra encima y sigue presionando.</li>
+            <li>Llama al 9-1-1 si el sangrado no se detiene o es muy abundante.</li>
+            <li>Si es en brazo o pierna y no se controla con presión, una persona capacitada puede colocar un torniquete arriba de la herida.</li>
+            <li>Mantén a la persona acostada y abrigada.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No retires objetos clavados; fíjalos para que no se muevan.</li><li>No pongas tierra, café ni remedios caseros en la herida.</li></ul></div>
+        </div>
+        <div class="panel-em" id="quemadura">
+          <h3><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg> Quemaduras</h3>
+          <p class="intro">Son comunes en casa: estufa, agua hirviendo, aceite o calentones.</p>
+          <ol>
+            <li>Aleja a la persona de la fuente de calor.</li>
+            <li>Enfría la quemadura con agua corriente a temperatura ambiente o fresca de 10 a 20 minutos.</li>
+            <li>Retira anillos, relojes o ropa cercana antes de que se hinche, si no está pegada a la piel.</li>
+            <li>Cubre con un plástico limpio (tipo envoltura de cocina) o una gasa sin apretar.</li>
+            <li>Acude a urgencias si es grande, si está en cara, manos, genitales o articulaciones, o si es en un bebé o adulto mayor.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No pongas hielo, pasta de dientes, mantequilla ni aceite.</li><li>No revientes las ampollas.</li></ul></div>
+        </div>
+        <div class="panel-em" id="calor">
+          <h3><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M416 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 128A96 96 0 1 0 416 0a96 96 0 1 0 0 192zM96 112c0-26.5 21.5-48 48-48s48 21.5 48 48V276.5c0 17.3 7.1 31.9 15.3 42.5C217.8 332.6 224 349.5 224 368c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-18.5 6.2-35.4 16.7-48.9C88.9 308.4 96 293.8 96 276.5V112zM144 0C82.1 0 32 50.2 32 112V276.5c0 .1-.1 .3-.2 .6c-.2 .6-.8 1.6-1.7 2.8C11.2 304.2 0 334.8 0 368c0 79.5 64.5 144 144 144s144-64.5 144-144c0-33.2-11.2-63.8-30.1-88.1c-.9-1.2-1.5-2.2-1.7-2.8c-.1-.3-.2-.5-.2-.6V112C256 50.2 205.9 0 144 0zm0 416c26.5 0 48-21.5 48-48c0-20.9-13.4-38.7-32-45.3V112c0-8.8-7.2-16-16-16s-16 7.2-16 16V322.7c-18.6 6.6-32 24.4-32 45.3c0 26.5 21.5 48 48 48z"/></svg> Golpe de calor</h3>
+          <p class="intro">En verano Juárez supera los 40 °C. Señales: piel muy caliente, confusión, mareo, dolor de cabeza, vómito o desmayo.</p>
+          <ol>
+            <li>Llama al 9-1-1: el golpe de calor es una emergencia.</li>
+            <li>Lleva a la persona a la sombra o a un lugar fresco.</li>
+            <li>Enfríala lo más rápido posible: mójala con agua fresca y abanícala; pon compresas frías en cuello, axilas e ingles.</li>
+            <li>Si está consciente y puede tragar, dale pequeños sorbos de agua o suero oral.</li>
+            <li>Si deja de responder y no respira, inicia RCP.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No le des bebidas alcohólicas ni muy azucaradas.</li><li>No la dejes sola ni dentro de un vehículo.</li></ul></div>
+        </div>
+        <div class="panel-em" id="monoxido">
+          <h3><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185V64c0-17.7-14.3-32-32-32H448c-17.7 0-32 14.3-32 32v36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32v69.7c-.1 .9-.1 1.8-.1 2.8V472c0 22.1 17.9 40 40 40h16c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2H160h24c22.1 0 40-17.9 40-40V448 384c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v64 24c0 22.1 17.9 40 40 40h24 32.5c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1h16c22.1 0 40-17.9 40-40V455.8c.3-2.6 .5-5.3 .5-8.1l-.7-160.2h32z"/></svg> Intoxicación por monóxido de carbono</h3>
+          <p class="intro">En invierno es una de las emergencias más peligrosas en Juárez. El gas no huele ni se ve. Señales: dolor de cabeza, mareo, náusea, sueño o confusión, a veces en varias personas de la misma casa.</p>
+          <ol>
+            <li>Abre puertas y ventanas y saca a todos al aire libre de inmediato.</li>
+            <li>Apaga el calentón o aparato si puedes hacerlo sin riesgo.</li>
+            <li>Llama al 9-1-1, aunque las personas parezcan mejorar.</li>
+            <li>Si alguien no responde y no respira, inicia RCP ya en el exterior.</li>
+            <li>No regresen a la casa hasta que revisen el aparato.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> Para prevenir</strong><ul><li>Nunca uses asadores, anafres ni hornillas para calentar la casa.</li><li>Los calentones y boilers deben tener salida al exterior; no los instales en baños cerrados.</li><li>No duermas con el calentón de gas encendido.</li></ul></div>
+        </div>
+        <div class="panel-em" id="frio">
+          <h3><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M224 0c17.7 0 32 14.3 32 32V62.1l15-15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-49 49v70.3l61.4-35.8 17.7-66.1c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4l-5.2 19.3 23.6-13.8c15.3-8.9 34.9-3.7 43.8 11.5s3.8 34.9-11.5 43.8l-25.3 14.8 21.7 5.8c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-67.7-18.1L287.5 256l60.9 35.5 67.7-18.1c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4l-21.7 5.8 25.3 14.8c15.3 8.9 20.4 28.5 11.5 43.8s-28.5 20.4-43.8 11.5l-23.6-13.8 5.2 19.3c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-17.7-66.1L256 311.7v70.3l49 49c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V449.9l-15 15c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l49-49V311.7l-61.4 35.8-17.7 66.1c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4l5.2-19.3L48.1 395.6c-15.3 8.9-34.9 3.7-43.8-11.5s-3.7-34.9 11.5-43.8l25.3-14.8-21.7-5.8c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l67.7 18.1L160.5 256 99.6 220.5 31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4l21.7-5.8L15.9 171.6C.6 162.7-4.5 143.1 4.4 127.9s28.5-20.4 43.8-11.5l23.6 13.8-5.2-19.3c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l17.7 66.1L192 200.3V129.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l15 15V32c0-17.7 14.3-32 32-32z"/></svg> Hipotermia</h3>
+          <p class="intro">En noches de helada, adultos mayores, bebés y personas en situación de calle están en riesgo. Señales: temblor intenso, piel fría, habla lenta, torpeza o somnolencia.</p>
+          <ol>
+            <li>Lleva a la persona a un lugar cálido y protegido del viento.</li>
+            <li>Quítale la ropa mojada y cúbrela con cobijas secas, incluyendo la cabeza.</li>
+            <li>Si está consciente, dale bebidas tibias sin alcohol.</li>
+            <li>Llama al 9-1-1 si está confundida, muy somnolienta o deja de temblar.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No le frotes la piel con fuerza ni uses agua caliente directa.</li><li>No le des alcohol.</li></ul></div>
+        </div>
+        <div class="panel-em" id="convulsion">
+          <h3><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"/></svg> Convulsiones</h3>
+          <p class="intro">Movimientos bruscos e involuntarios, a veces con pérdida del conocimiento.</p>
+          <ol>
+            <li>Mantén la calma y mide el tiempo que dura.</li>
+            <li>Retira objetos con los que se pueda golpear y protege su cabeza con algo suave.</li>
+            <li>Afloja la ropa del cuello.</li>
+            <li>Cuando termine, colócala de lado para que respire mejor y quédate con ella.</li>
+            <li>Llama al 9-1-1 si dura más de 5 minutos, si es la primera vez, si se lastimó o si no despierta.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No le metas nada en la boca.</li><li>No intentes sujetarla ni detener los movimientos.</li></ul></div>
+        </div>
+        <div class="panel-em" id="fractura">
+          <h3><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M153.7 144.8c6.9 16.3 20.6 31.2 38.3 31.2H384c17.7 0 31.4-14.9 38.3-31.2C434.4 116.1 462.9 96 496 96c44.2 0 80 35.8 80 80c0 30.4-17 56.9-42 70.4c-3.6 1.9-6 5.5-6 9.6s2.4 7.7 6 9.6c25 13.5 42 40 42 70.4c0 44.2-35.8 80-80 80c-33.1 0-61.6-20.1-73.7-48.8C415.4 350.9 401.7 336 384 336H192c-17.7 0-31.4 14.9-38.3 31.2C141.6 395.9 113.1 416 80 416c-44.2 0-80-35.8-80-80c0-30.4 17-56.9 42-70.4c3.6-1.9 6-5.5 6-9.6s-2.4-7.7-6-9.6C17 232.9 0 206.4 0 176c0-44.2 35.8-80 80-80c33.1 0 61.6 20.1 73.7 48.8z"/></svg> Fracturas y golpes</h3>
+          <p class="intro">Dolor fuerte, deformidad, hinchazón o incapacidad para mover la zona.</p>
+          <ol>
+            <li>No muevas a la persona si sospechas lesión de cuello o espalda (por ejemplo, tras una caída de altura o un choque).</li>
+            <li>Inmoviliza la zona tal como está, con una tablilla, cartón o revistas y vendas.</li>
+            <li>Aplica frío envuelto en una tela por 15 a 20 minutos para bajar la hinchazón.</li>
+            <li>Si hay herida con hueso expuesto, cúbrela con gasa limpia sin presionar el hueso.</li>
+            <li>Llama al 9-1-1 o acude a urgencias.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No intentes "acomodar" el hueso.</li><li>No des de comer ni de beber por si necesita cirugía.</li></ul></div>
+        </div>
+        <div class="panel-em" id="picadura">
+          <h3><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M158.4 32.6c4.8-12.4-1.4-26.3-13.8-31s-26.3 1.4-31 13.8L81.1 100c-7.9 20.7-3 44.1 12.7 59.7l57.4 57.4L70.8 190.3c-2.4-.8-4.3-2.7-5.1-5.1L46.8 128.4C42.6 115.8 29 109 16.4 113.2S-3 131 1.2 143.6l18.9 56.8c5.6 16.7 18.7 29.8 35.4 35.4L116.1 256 55.6 276.2c-16.7 5.6-29.8 18.7-35.4 35.4L1.2 368.4C-3 381 3.8 394.6 16.4 398.8s26.2-2.6 30.4-15.2l18.9-56.8c.8-2.4 2.7-4.3 5.1-5.1l80.4-26.8L93.7 352.3C78.1 368 73.1 391.4 81.1 412l32.5 84.6c4.8 12.4 18.6 18.5 31 13.8s18.5-18.6 13.8-31l-32.5-84.6c-1.1-3-.4-6.3 1.8-8.5L160 353.9c1 52.1 43.6 94.1 96 94.1s95-41.9 96-94.1l32.3 32.3c2.2 2.2 2.9 5.6 1.8 8.5l-32.5 84.6c-4.8 12.4 1.4 26.3 13.8 31s26.3-1.4 31-13.8L430.9 412c7.9-20.7 3-44.1-12.7-59.7l-57.4-57.4 80.4 26.8c2.4 .8 4.3 2.7 5.1 5.1l18.9 56.8c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-18.9-56.8c-5.6-16.7-18.7-29.8-35.4-35.4L395.9 256l60.5-20.2c16.7-5.6 29.8-18.7 35.4-35.4l18.9-56.8c4.2-12.6-2.6-26.2-15.2-30.4s-26.2 2.6-30.4 15.2l-18.9 56.8c-.8 2.4-2.7 4.3-5.1 5.1l-80.4 26.8 57.4-57.4c15.6-15.6 20.6-39 12.7-59.7L398.4 15.4C393.6 3 379.8-3.2 367.4 1.6s-18.5 18.6-13.8 31l32.5 84.6c1.1 3 .4 6.3-1.8 8.5L336 174.1V160c0-31.8-18.6-59.3-45.5-72.2c-9.1-4.4-18.5 3.3-18.5 13.4V112c0 8.8-7.2 16-16 16s-16-7.2-16-16V101.2c0-10.1-9.4-17.7-18.5-13.4C194.6 100.7 176 128.2 176 160v14.1l-48.3-48.3c-2.2-2.2-2.9-5.6-1.8-8.5l32.5-84.6z"/></svg> Picadura de alacrán o araña</h3>
+          <p class="intro">En Juárez hay alacranes y arañas como la viuda negra, sobre todo en temporada de calor. Los niños pequeños y los adultos mayores son los más vulnerables.</p>
+          <ol>
+            <li>Mantén a la persona tranquila y en reposo.</li>
+            <li>Lava la zona con agua y jabón.</li>
+            <li>Aplica una compresa fría envuelta en tela.</li>
+            <li>Acude al centro de salud o urgencias, sobre todo si es un niño o si hay dificultad para respirar, babeo, visión borrosa o dolor intenso.</li>
+          </ol>
+          <div class="nohacer"><strong><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg> No hagas</strong><ul><li>No hagas cortes ni intentes chupar el veneno.</li><li>No uses torniquetes ni remedios caseros.</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rcp" class="fondo-blanco">
+  <div class="envoltura">
+    <div class="metro">
+      <div>
+        <h2>Practica el ritmo de la RCP</h2>
+        <p style="margin-top:10px">Las compresiones deben ir a un ritmo de 100 a 120 por minuto. Presiona el botón y sigue el latido con tus manos sobre una almohada.</p>
+        <ul>
+          <li>Brazos rectos y hombros sobre tus manos.</li>
+          <li>Empuja unos 5 cm y deja que el pecho regrese.</li>
+          <li>Tip: es el ritmo de la canción "La Macarena".</li>
+        </ul>
+      </div>
+      <div class="pulso-caja">
+        <div class="pulso" id="pulso"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></div>
+        <div id="contador">0 compresiones</div>
+        <button class="boton" id="btnRitmo"><svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg> Iniciar ritmo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="botiquin">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Prepárate</small>
+      <h2>Botiquín básico para casa</h2>
+      <p>Guárdalo en un lugar fresco, seco y fuera del alcance de los niños. Revisa las fechas de caducidad cada seis meses.</p>
+    </div>
+    <div class="botiquin">
+      <div class="objeto"><svg class="ico" viewBox="0 0 640 512" aria-hidden="true"><path d="M320 0c17.7 0 32 14.3 32 32V240c0 8.8 7.2 16 16 16s16-7.2 16-16V64c0-17.7 14.3-32 32-32s32 14.3 32 32V240c0 8.8 7.2 16 16 16s16-7.2 16-16V128c0-17.7 14.3-32 32-32s32 14.3 32 32V323.1c-11.9 4.8-21.3 14.9-25 27.8l-8.9 31.2L478.9 391C460.6 396.3 448 413 448 432c0 18.9 12.5 35.6 30.6 40.9C448.4 497.4 409.9 512 368 512H348.8c-59.6 0-116.9-22.9-160-64L76.4 341c-16-15.2-16.6-40.6-1.4-56.6s40.6-16.6 56.6-1.4l60.5 57.6c0-1.5-.1-3.1-.1-4.6V64c0-17.7 14.3-32 32-32s32 14.3 32 32V240c0 8.8 7.2 16 16 16s16-7.2 16-16V32c0-17.7 14.3-32 32-32zm-7.3 326.6c-1.1-3.9-4.7-6.6-8.7-6.6s-7.6 2.7-8.7 6.6L288 352l-25.4 7.3c-3.9 1.1-6.6 4.7-6.6 8.7s2.7 7.6 6.6 8.7L288 384l7.3 25.4c1.1 3.9 4.7 6.6 8.7 6.6s7.6-2.7 8.7-6.6L320 384l25.4-7.3c3.9-1.1 6.6-4.7 6.6-8.7s-2.7-7.6-6.6-8.7L320 352l-7.3-25.4zM104 120l48.3 13.8c4.6 1.3 7.7 5.5 7.7 10.2s-3.1 8.9-7.7 10.2L104 168 90.2 216.3c-1.3 4.6-5.5 7.7-10.2 7.7s-8.9-3.1-10.2-7.7L56 168 7.7 154.2C3.1 152.9 0 148.7 0 144s3.1-8.9 7.7-10.2L56 120 69.8 71.7C71.1 67.1 75.3 64 80 64s8.9 3.1 10.2 7.7L104 120zM584 408l48.3 13.8c4.6 1.3 7.7 5.5 7.7 10.2s-3.1 8.9-7.7 10.2L584 456l-13.8 48.3c-1.3 4.6-5.5 7.7-10.2 7.7s-8.9-3.1-10.2-7.7L536 456l-48.3-13.8c-4.6-1.3-7.7-5.5-7.7-10.2s3.1-8.9 7.7-10.2L536 408l13.8-48.3c1.3-4.6 5.5-7.7 10.2-7.7s8.9 3.1 10.2 7.7L584 408z"/></svg><p>Guantes desechables</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 640 512" aria-hidden="true"><path d="M480 416h96c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H480V416zM448 96H192V416H448V96zM64 96C28.7 96 0 124.7 0 160V352c0 35.3 28.7 64 64 64h96V96H64zM248 208a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm120-24a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM248 304a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm120-24a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg><p>Gasas y curitas</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/></svg><p>Vendas elásticas</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M380.8 416c41.5-40.7 67.2-97.3 67.2-160C448 132.3 347.7 32 224 32S0 132.3 0 256S100.3 480 224 480H544c17.7 0 32-14.3 32-32s-14.3-32-32-32H380.8zM224 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm64 96a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg><p>Cinta microporosa</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 192l-39.5-39.5c4.9-12.6 7.5-26.2 7.5-40.5C224 50.1 173.9 0 112 0S0 50.1 0 112s50.1 112 112 112c14.3 0 27.9-2.7 40.5-7.5L192 256l-39.5 39.5c-12.6-4.9-26.2-7.5-40.5-7.5C50.1 288 0 338.1 0 400s50.1 112 112 112s112-50.1 112-112c0-14.3-2.7-27.9-7.5-40.5L499.2 76.8c7.1-7.1 7.1-18.5 0-25.6c-28.3-28.3-74.1-28.3-102.4 0L256 192zm22.6 150.6L396.8 460.8c28.3 28.3 74.1 28.3 102.4 0c7.1-7.1 7.1-18.5 0-25.6L342.6 278.6l-64 64zM64 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm48 240a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg><p>Tijeras de punta roma</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM320 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zM416 32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0 160c0 27.6-11.7 52.5-30.4 70.1C422.1 275.7 448 310.8 448 352c0 53-43 96-96 96H160c-53 0-96-43-96-96s43-96 96-96h88.4c-15.2-17-24.4-39.4-24.4-64H96c-53 0-96 43-96 96V416c0 53 43 96 96 96H416c53 0 96-43 96-96V288c0-53-43-96-96-96zM160 288c-35.3 0-64 28.7-64 64s28.7 64 64 64H352c35.3 0 64-28.7 64-64s-28.7-64-64-64H320 160z"/></svg><p>Jabón y agua limpia</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 320 512" aria-hidden="true"><path d="M160 64c-26.5 0-48 21.5-48 48V276.5c0 17.3-7.1 31.9-15.3 42.5C86.2 332.6 80 349.5 80 368c0 44.2 35.8 80 80 80s80-35.8 80-80c0-18.5-6.2-35.4-16.7-48.9c-8.2-10.6-15.3-25.2-15.3-42.5V112c0-26.5-21.5-48-48-48zM48 112C48 50.2 98.1 0 160 0s112 50.1 112 112V276.5c0 .1 .1 .3 .2 .6c.2 .6 .8 1.6 1.7 2.8c18.9 24.4 30.1 55 30.1 88.1c0 79.5-64.5 144-144 144S16 447.5 16 368c0-33.2 11.2-63.8 30.1-88.1c.9-1.2 1.5-2.2 1.7-2.8c.1-.3 .2-.5 .2-.6V112zM208 368c0 26.5-21.5 48-48 48s-48-21.5-48-48c0-20.9 13.4-38.7 32-45.3V208c0-8.8 7.2-16 16-16s16 7.2 16 16V322.7c18.6 6.6 32 24.4 32 45.3z"/></svg><p>Termómetro</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M32 0C23.1 0 14.6 3.7 8.6 10.2S-.6 25.4 .1 34.3L28.9 437.7c3 41.9 37.8 74.3 79.8 74.3H275.3c42 0 76.8-32.4 79.8-74.3L383.9 34.3c.6-8.9-2.4-17.6-8.5-24.1S360.9 0 352 0H32zM73 156.5L66.4 64H317.6L311 156.5l-24.2 12.1c-19.4 9.7-42.2 9.7-61.6 0c-20.9-10.4-45.5-10.4-66.4 0c-19.4 9.7-42.2 9.7-61.6 0L73 156.5z"/></svg><p>Suero oral</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true"><path d="M224 0c17.7 0 32 14.3 32 32V62.1l15-15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-49 49v70.3l61.4-35.8 17.7-66.1c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4l-5.2 19.3 23.6-13.8c15.3-8.9 34.9-3.7 43.8 11.5s3.8 34.9-11.5 43.8l-25.3 14.8 21.7 5.8c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-67.7-18.1L287.5 256l60.9 35.5 67.7-18.1c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4l-21.7 5.8 25.3 14.8c15.3 8.9 20.4 28.5 11.5 43.8s-28.5 20.4-43.8 11.5l-23.6-13.8 5.2 19.3c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-17.7-66.1L256 311.7v70.3l49 49c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V449.9l-15 15c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l49-49V311.7l-61.4 35.8-17.7 66.1c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4l5.2-19.3L48.1 395.6c-15.3 8.9-34.9 3.7-43.8-11.5s-3.7-34.9 11.5-43.8l25.3-14.8-21.7-5.8c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l67.7 18.1L160.5 256 99.6 220.5 31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4l21.7-5.8L15.9 171.6C.6 162.7-4.5 143.1 4.4 127.9s28.5-20.4 43.8-11.5l23.6 13.8-5.2-19.3c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l17.7 66.1L192 200.3V129.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l15 15V32c0-17.7 14.3-32 32-32z"/></svg><p>Compresa fría instantánea</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg><p>Lámpara</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM208 288h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg><p>Lista de teléfonos de emergencia</p></div>
+      <div class="objeto"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true"><path d="M112 96c-26.5 0-48 21.5-48 48V256h96V144c0-26.5-21.5-48-48-48zM0 144C0 82.1 50.1 32 112 32s112 50.1 112 112V368c0 61.9-50.1 112-112 112S0 429.9 0 368V144zM554.9 399.4c-7.1 12.3-23.7 13.1-33.8 3.1L333.5 214.9c-10-10-9.3-26.7 3.1-33.8C360 167.7 387.1 160 416 160c88.4 0 160 71.6 160 160c0 28.9-7.7 56-21.1 79.4zm-59.5 59.5C472 472.3 444.9 480 416 480c-88.4 0-160-71.6-160-160c0-28.9 7.7-56 21.1-79.4c7.1-12.3 23.7-13.1 33.8-3.1L498.5 425.1c10 10 9.3 26.7-3.1 33.8z"/></svg><p>Medicamentos personales</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fondo-blanco">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Mitos y realidades</small>
+      <h2>¿Verdad o mentira?</h2>
+      <p>Toca cada tarjeta para descubrir la respuesta.</p>
+    </div>
+    <div class="mitos">
+      <div class="tarjeta-mito"><div class="giro"><div class="cara frente"><small>MITO</small><h4>"A una quemadura se le pone pasta de dientes."</h4><span class="toca">Toca para voltear</span></div><div class="cara atras"><small>REALIDAD</small><p>La pasta guarda el calor y puede infectar. Lo correcto es agua corriente fresca de 10 a 20 minutos.</p></div></div></div>
+      <div class="tarjeta-mito"><div class="giro"><div class="cara frente"><small>MITO</small><h4>"En una convulsión hay que sujetar la lengua."</h4><span class="toca">Toca para voltear</span></div><div class="cara atras"><small>REALIDAD</small><p>No se traga la lengua. Meter objetos a la boca puede romper dientes o lastimarte. Solo protege su cabeza.</p></div></div></div>
+      <div class="tarjeta-mito"><div class="giro"><div class="cara frente"><small>MITO</small><h4>"Si sangra la nariz, echa la cabeza hacia atrás."</h4><span class="toca">Toca para voltear</span></div><div class="cara atras"><small>REALIDAD</small><p>Inclina la cabeza hacia adelante y aprieta la parte blanda de la nariz por 10 minutos, para no tragar sangre.</p></div></div></div>
+      <div class="tarjeta-mito"><div class="giro"><div class="cara frente"><small>MITO</small><h4>"Solo los médicos pueden dar RCP."</h4><span class="toca">Toca para voltear</span></div><div class="cara atras"><small>REALIDAD</small><p>Cualquier persona puede hacerlo. Las guías 2025 indican que desde los 12 años se puede aprender RCP y a usar un desfibrilador.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="telefonos">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Ten a la mano</small>
+      <h2>Teléfonos de emergencia</h2>
+    </div>
+    <div class="numeros">
+      <div class="num grande"><h3><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><path d="M280 0C408.1 0 512 103.9 512 232c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-101.6-82.4-184-184-184c-13.3 0-24-10.7-24-24s10.7-24 24-24zm8 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-72c0-13.3 10.7-24 24-24c75.1 0 136 60.9 136 136c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-48.6-39.4-88-88-88c-13.3 0-24-10.7-24-24zM117.5 1.4c19.4-5.3 39.7 4.6 47.4 23.2l40 96c6.8 16.3 2.1 35.2-11.6 46.3L144 207.3c33.3 70.4 90.3 127.4 160.7 160.7L345 318.7c11.2-13.7 30-18.4 46.3-11.6l96 40c18.6 7.7 28.5 28 23.2 47.4l-24 88C481.8 499.9 466 512 448 512C200.6 512 0 311.4 0 64C0 46 12.1 30.2 29.5 25.4l88-24z"/></svg> Emergencias</h3><b>9-1-1</b><p>Ambulancias, bomberos, policía y Protección Civil. Gratis desde cualquier teléfono. Di tu ubicación exacta y no cuelgues.</p></div>
+      <div class="num"><h3>Línea de la Vida</h3><b style="font-size:1.6rem;color:var(--teal)">800 911 2000</b><p>Apoyo emocional y en crisis, las 24 horas.</p></div>
+      <div class="num"><h3>Denuncia anónima</h3><b style="font-size:1.6rem;color:var(--teal)">089</b><p>Para reportar delitos de forma anónima.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fondo-blanco">
+  <div class="envoltura">
+    <div class="cabeza">
+      <small>Bibliografía</small>
+      <h2>Referencias</h2>
+    </div>
+    <ol class="referencias">
+      <li>American Heart Association (2025). <a href="https://www.heart.org/en/affiliates/updated-cpr-guidelines-aim-to-save-more-lives" target="_blank" rel="noopener">Updated CPR guidelines aim to save more lives</a>.</li>
+      <li>KPAX / Scripps News (2025). <a href="https://www.kpax.com/health/from-choking-response-to-naloxone-use-whats-new-in-cpr-guidelines" target="_blank" rel="noopener">From choking response to naloxone use: what's new in CPR guidelines</a>.</li>
+      <li>Gobierno del Estado de Chihuahua (2026). <a href="https://www.chihuahua.gob.mx/sites/default/atach2/noticias/adjuntos/2026-04/Brinda%20Centro%20Regulador%20de%20Urgencias%20M%C3%A9dicas%20de%20Ciudad%20Ju%C3%A1rez%20entre%20250%20y%20300%20servicios%20mensuales.pdf" target="_blank" rel="noopener">Brinda Centro Regulador de Urgencias Médicas de Ciudad Juárez entre 250 y 300 servicios mensuales</a>.</li>
+      <li>Norte Digital (17 ene 2025). <a href="https://nortedigital.mx/van-3-muertos-por-monoxido-de-carbono-y-23-intoxicados" target="_blank" rel="noopener">Van 3 muertos por monóxido de carbono y 23 intoxicados</a>.</li>
+      <li>N+ Chihuahua. <a href="https://www.nmas.com.mx/chihuahua/familia-se-intoxica-con-monoxido-de-carbono-en-ciudad-juarez-cinco-fueron-hospitalizadas/" target="_blank" rel="noopener">Familia se intoxica con monóxido de carbono en Ciudad Juárez</a>.</li>
+      <li>Southern Medical Journal. <a href="https://sma.org/southern-medical-journal/article/unintentional-carbon-monoxide-poisoning-cases-in-ciudad-jurez-mexico/" target="_blank" rel="noopener">Unintentional carbon monoxide poisoning cases in Ciudad Juárez, Mexico</a>.</li>
+      <li>El Universal. <a href="https://www.eluniversal.com.mx/estados/mueren-dos-personas-por-golpe-de-calor-en-chihuahua/" target="_blank" rel="noopener">Mueren dos personas por golpe de calor en Chihuahua</a>.</li>
+      <li>N+ (2026). <a href="https://www.nmas.com.mx/clima/pronostico-del-tiempo/calor-extremo-en-mexico-2026-suman-36-muertos-y-mas-de-mil-afectados/" target="_blank" rel="noopener">Calor extremo en México 2026: suman muertos y más de mil afectados</a>.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="envoltura">
+    <p><strong>Primeros Auxilios para mi Comunidad</strong> · Ciudad Juárez, Chihuahua · 2026</p>
+    <p style="margin-top:6px">Elaborado por: ______________________</p>
+    <p class="aviso">Material informativo con fines educativos. No sustituye la capacitación certificada ni la atención médica profesional. En una emergencia llama al 9-1-1.</p>
+  </div>
+</footer>
+
+<script>
+// menú en celular
+document.getElementById('btnMenu').onclick=()=>document.getElementById('enlaces').classList.toggle('abierto');
+document.querySelectorAll('#enlaces a').forEach(a=>a.onclick=()=>document.getElementById('enlaces').classList.remove('abierto'));
+
+// guía de emergencias
+document.querySelectorAll('#listaEmerg button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#listaEmerg button').forEach(x=>x.classList.remove('activo'));
+    document.querySelectorAll('.panel-em').forEach(p=>p.classList.remove('ver'));
+    b.classList.add('activo');
+    document.getElementById(b.dataset.e).classList.add('ver');
+    if(window.innerWidth<860)document.querySelector('.detalle').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+});
+
+// tarjetas de mitos
+document.querySelectorAll('.tarjeta-mito').forEach(t=>t.onclick=()=>t.classList.toggle('volteada'));
+
+// metrónomo de RCP (110 por minuto)
+let intervalo=null,cuenta=0,audio=null;
+const pulso=document.getElementById('pulso'),btn=document.getElementById('btnRitmo'),cont=document.getElementById('contador');
+const txtIniciar=btn.innerHTML;
+function sonido(){
+  try{
+    audio=audio||new (window.AudioContext||window.webkitAudioContext)();
+    const o=audio.createOscillator(),g=audio.createGain();
+    o.frequency.value=880;g.gain.setValueAtTime(.25,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.08);
+    o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+.09);
+  }catch(e){}
+}
+btn.onclick=()=>{
+  if(intervalo){clearInterval(intervalo);intervalo=null;btn.innerHTML=txtIniciar;return;}
+  cuenta=0;cont.textContent='0 compresiones';
+  btn.innerHTML='<svg class="ico" viewBox="0 0 384 512" aria-hidden="true"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> Detener';
+  intervalo=setInterval(()=>{
+    cuenta++;cont.textContent=cuenta+(cuenta===1?' compresión':' compresiones');
+    pulso.classList.add('golpe');setTimeout(()=>pulso.classList.remove('golpe'),120);
+    sonido();
+  },545);
+};
+</script>
+</body>
+</html>
